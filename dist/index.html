@@ -1,0 +1,542 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="/src/input.css">
+  <title>Youtube</title>
+  <link rel="shortcut icon" href="/images/favicon.webp" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="overflow-hidden">
+
+  <!-- Mobile & Tablet Sidebar -->
+  <div id="mobileSidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 p-4 lg:hidden overflow-y-auto">
+    <div class="flex justify-end">
+      <button onclick="toggleSidebar()">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+    <div class="my-10">
+      <div class="flex items-center border border-gray-300 rounded-full overflow-hidden">
+        <input class="px-2 py-1 w-full text-sm focus:outline-none" type="text" placeholder="Search">
+        <i class="fa-solid fa-magnifying-glass px-3 text-sm text-gray-600"></i>
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center gap-2 border px-3 py-2 rounded-full bg-gray-100 text-sm cursor-pointer">
+        <i class="fa-solid fa-plus"></i>
+        <span>Create</span>
+      </div>
+      <div class="flex items-center gap-2 border px-3 py-2 rounded-full bg-gray-100 text-sm cursor-pointer">
+        <i class="fa-solid fa-bell"></i>
+        <span>Notification</span>
+      </div>
+      <div class="flex items-center gap-2 border px-3 py-2 rounded-full bg-gray-100 text-sm cursor-pointer">
+        <i class="fa-solid fa-user"></i>
+        <span>Account</span>
+      </div>
+    </div>
+    
+    <!-- Left Sidebar Content for Mobile & Tablet -->
+    <div class="three p-1 py-4 border-b border-gray-200 mt-4">
+      <div class="home cursor-pointer p-3 mt-2 hover:bg-gray-100">
+        <i class="fa-solid fa-house"></i> <span class="ml-2">Home</span>
+      </div>
+      <div class="home cursor-pointer p-1 flex items-center mt-1 hover:bg-gray-100">
+        <img class="h-[2rem]" src="/images/shorts.jpg" alt=""> <span class="ml-1">Shorts</span>
+      </div>
+      <div class="home cursor-pointer pr-5 flex items-center mt-2 hover:bg-gray-100">
+        <img class="h-[1.6rem]" src="/images/sub.png" alt=""> <span>Subscriptions</span>
+      </div>
+    </div>
+
+    <h2 class="ml-3 font-bold mt-2">You ></h2>
+
+    <div class="five border-b border-gray-200">
+      <div class="home cursor-pointer p-3 mt-3 hover:bg-gray-100">
+        <i class="fa-solid fa-clock"></i> <span class="ml-2">History</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 flex items-center mt-3 hover:bg-gray-100">
+        <img class="h-[1.2rem]" src="/images/playlist.png" alt=""> <span class="ml-2">Playlist</span>
+      </div>
+      <div class="home cursor-pointer pl-2 py-1 flex items-center mt-3 hover:bg-gray-100">
+        <img class="h-[1.5rem]" src="/images/your.png" alt=""> <span class="ml-2">Your Videos</span>
+      </div>
+      <div class="home cursor-pointer p-3 mt-3 hover:bg-gray-100">
+        <i class="fa-solid fa-clock"></i> <span class="ml-2">Watch Later</span>
+      </div>
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-3 hover:bg-gray-100">
+        <img class="h-[1.5rem]" src="/images/liked.png" alt=""> <span class="ml-2">Liked Videos</span>
+      </div>
+    </div>
+
+    <h2 class="ml-3 font-bold mt-2">Explore ></h2>
+    <div class="five border-b border-gray-300">
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/liked.png" alt=""> <span class="ml-3">Trending Videos</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.2rem]" src="/images/playlist.png" alt=""> <span class="ml-3">Music</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/gaming.webp" alt=""> <span class="ml-3">Gaming</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/news.png" alt=""> <span class="ml-3">News</span>
+      </div>
+      <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/setting.png" alt=""> <span class="ml-2">Settings</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/flag.webp" alt=""> <span class="ml-2">Send Feedback</span>
+      </div>
+    </div>
+
+    <h2 class="ml-3 mt-2 font-bold">More from Youtube</h2>
+    <div class="five border-b border-gray-300 p-2">
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/youtube icon.avif" alt=""> <span class="ml-3">Trending Videos</span>
+      </div>
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/youtube-studio-icons-free.png" alt=""> <span class="ml-3">Youtube Studio</span>
+      </div>
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.2rem]" src="/images/muicicon.png" alt=""> <span class="ml-3">Youtube Music</span>
+      </div>
+      <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.1rem]" src="/images/kids.png" alt=""> <span class="ml-3">Youtube Kids</span>
+      </div>
+    </div>
+    <div class="four p-3">
+      <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/setting.png" alt=""> <span class="ml-2">Settings</span>
+      </div>
+      <div class="home cursor-pointer pl-3 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem]" src="/images/flag.webp" alt=""> <span class="ml-3">Send Feedback</span>
+      </div>
+      <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="h-[1.3rem] ml-2" src="/images/mark.png" alt=""> <span class="ml-3">Help</span>
+      </div>
+      <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+        <img class="pl-2 h-[1.3rem]" src="/images/feedback.webp" alt=""> <span class="ml-3">Feedback</span>
+      </div>
+    </div>
+    <div class="last flex justify-center items-center gap-3 mt-5">
+      <span><i class="fa-regular fa-copyright"></i></span>
+      <h2 class="text-gray-500 text-[0.9rem]">2025 Google LLC</h2>
+    </div>
+  </div>
+
+  <!-- Navbar (Sticky) -->
+  <nav class="w-full flex flex-wrap items-center justify-between sticky top-0 z-50 px-2 py-2 bg-white ">
+    <div class="flex items-center gap-2 pl-2">
+      <span onclick="toggleSidebar()" class="text-sm md:text-base cursor-pointer lg:hidden">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+      <a href="#">
+        <img class="h-12 md:h-16 w-auto" src="/images/logo.png" alt="logo">
+      </a>
+    </div>
+    <div class="flex items-center gap-1 flex-grow justify-center px-2">
+      <div class="flex items-center border border-gray-300 rounded-full w-full max-w-[200px] lg:max-w-[500px] md:max-w-[300px] overflow-hidden">
+        <input class="px-2 py-1 text-sm bg-transparent w-full focus:outline-none" type="text" placeholder="Search">
+        <i class="fa-solid fa-magnifying-glass text-gray-600 px-3 text-sm"></i>
+      </div>
+      <div class="mic border border-gray-200 px-2 md:px-3 py-1 rounded-full">
+        <i class="fa-solid fa-microphone text-base sm:text-xs"></i>
+      </div>
+    </div>
+    <div class="hidden lg:flex items-center gap-2">
+      <div class="flex items-center gap-1 border px-3 py-1 rounded-full bg-gray-100 cursor-pointer text-sm">
+        <i class="fa-solid fa-plus"></i>
+        <span>Create</span>
+      </div>
+      <div class="flex items-center gap-1 border px-3 py-1 rounded-full bg-gray-100 text-sm cursor-pointer">
+        <i class="fa-solid fa-bell"></i>
+        <span>Notification</span>
+      </div>
+      <div class="flex items-center gap-1 border px-3 py-1 rounded-full bg-gray-100 text-sm cursor-pointer">
+        <i class="fa-solid fa-user"></i>
+        <span>Account</span>
+      </div>
+    </div>
+    
+    </div>
+  </nav>
+
+  <div class="flex">
+    <!-- Left Sidebar (Fixed with its own scroll) - Desktop Only -->
+    <div class="left hidden lg:block fixed top-[4.5rem] bottom-0 w-[12%] h-[calc(100vh-4.5rem)] overflow-y-auto z-40 bg-white p-3">
+      <div class="three p-1 py-4 border-b border-gray-200">
+        <div class="home cursor-pointer p-3 mt-2 hover:bg-gray-100">
+          <i class="fa-solid fa-house"></i> <span class="ml-2">Home</span>
+        </div>
+        <div class="home cursor-pointer p-1 flex items-center mt-1 hover:bg-gray-100">
+          <img class="h-[2rem]" src="/images/shorts.jpg" alt=""> <span class="ml-1">Shorts</span>
+        </div>
+        <div class="home cursor-pointer pr-5 flex items-center mt-2 hover:bg-gray-100">
+          <img class="h-[1.6rem]" src="/images/sub.png" alt=""> <span>Subscriptions</span>
+        </div>
+      </div>
+
+      <h2 class="ml-3 font-bold mt-2">You ></h2>
+
+      <div class="five border-b border-gray-200">
+        <div class="home cursor-pointer p-3 mt-3 hover:bg-gray-100">
+          <i class="fa-solid fa-clock"></i> <span class="ml-2">History</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 flex items-center mt-3 hover:bg-gray-100">
+          <img class="h-[1.2rem]" src="/images/playlist.png" alt=""> <span class="ml-2">Playlist</span>
+        </div>
+        <div class="home cursor-pointer pl-2 py-1 flex items-center mt-3 hover:bg-gray-100">
+          <img class="h-[1.5rem]" src="/images/your.png" alt=""> <span class="ml-2">Your Videos</span>
+        </div>
+        <div class="home cursor-pointer p-3 mt-3 hover:bg-gray-100">
+          <i class="fa-solid fa-clock"></i> <span class="ml-2">Watch Later</span>
+        </div>
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-3 hover:bg-gray-100">
+          <img class="h-[1.5rem]" src="/images/liked.png" alt=""> <span class="ml-2">Liked Videos</span>
+        </div>
+      </div>
+
+      <h2 class="ml-3 font-bold mt-2">Explore ></h2>
+      <div class="five border-b border-gray-300">
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/liked.png" alt=""> <span class="ml-3">Trending Videos</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.2rem]" src="/images/playlist.png" alt=""> <span class="ml-3">Music</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/gaming.webp" alt=""> <span class="ml-3">Gaming</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/news.png" alt=""> <span class="ml-3">News</span>
+        </div>
+        <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/setting.png" alt=""> <span class="ml-2">Settings</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/flag.webp" alt=""> <span class="ml-2">Send Feedback</span>
+        </div>
+      </div>
+
+      <h2 class="ml-3 mt-2 font-bold">More from Youtube</h2>
+      <div class="five border-b border-gray-300 p-2">
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/youtube icon.avif" alt=""> <span class="ml-3">Trending Videos</span>
+        </div>
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/youtube-studio-icons-free.png" alt=""> <span class="ml-3">Youtube Studio</span>
+        </div>
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.2rem]" src="/images/muicicon.png" alt=""> <span class="ml-3">Youtube Music</span>
+        </div>
+        <div class="home cursor-pointer pl-2 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.1rem]" src="/images/kids.png" alt=""> <span class="ml-3">Youtube Kids</span>
+        </div>
+      </div>
+      <div class="four p-3">
+        <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/setting.png" alt=""> <span class="ml-2">Settings</span>
+        </div>
+        <div class="home cursor-pointer pl-3 py-1 mb-3 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem]" src="/images/flag.webp" alt=""> <span class="ml-3">Send Feedback</span>
+        </div>
+        <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="h-[1.3rem] ml-2" src="/images/mark.png" alt=""> <span class="ml-3">Help</span>
+        </div>
+        <div class="home cursor-pointer pl-1 py-1 flex items-center mt-4 hover:bg-gray-100">
+          <img class="pl-2 h-[1.3rem]" src="/images/feedback.webp" alt=""> <span class="ml-3">Feedback</span>
+        </div>
+      </div>
+      <div class="last flex justify-center items-center gap-3 mt-5">
+        <span><i class="fa-regular fa-copyright"></i></span>
+        <h2 class="text-gray-500 text-[0.9rem]">2025 Google LLC</h2>
+      </div>
+    </div>
+
+
+
+
+
+    
+    <!-- Right Content (Scrollable) -->
+   <div class="right lg:ml-[12%] w-full lg:w-[88%] h-[calc(100vh-4.5rem)] overflow-y-scroll">
+  <div class="cards px-3 py-5 rounded-[2rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Card 1 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/FtuuZI6w4xo?si=CzbA59n7TalifyJ5" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/farooq.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Metallurgic Hunter Hola Buddy | <i class="fa-solid fa-fire"></i> PUBG MOBILE <i class="fa-solid fa-fire"></i></h2>
+          <p>Farooq Ahmad YT</p>
+          <p>21K views · 17 hours ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/-hIYeO5gUsY?si=pG_t69aIRSmhhL0D" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/world of strength.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>He is Not Human: Akimbo69's Strength DEFIES Logic</h2>
+          <p>World of Strength</p>
+          <p>124K views · 23 hours ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/AHrGk2MfTvI?si=gQ2MYN_lxnEv9NJi" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/green.jpeg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Akhara Ka Shair Dilsher | Top Fighting Scenes | Feroze Khan | Sonya Hussain | Green TV</h2>
+          <p>Green TV Entertainment</p>
+          <p>144K views · 11 months ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BPkCOUMY2ic?si=xySM08EkJ-HYrAuE" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/zenx.jpeg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>60 FPS AGGRESSION IPHONE 12 PUBG / BGMI TEST 2025</h2>
+          <p>Zenx Playz</p>
+          <p>142K views · 30 months ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/1EKH03AlBwA?si=mS6Hf9xTZ2Wkov9K" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/kang.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Getting Shredded || Intense Chest and Triceps Workout</h2>
+          <p>Kangken DB</p>
+          <p>17K views · 5 months ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/a_5wTLk4q6I?si=q1MVfTRAHFF0Q-LJ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/logo1.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Barsaat song 🎵 slowed & reverb ❤ #‪@SumanBhakat-w3y‬ #aivideogenerator</h2>
+          <p>Kangken DB</p>
+          <p>17K views · 5 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Card 7 -->
+
+     <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/SUUXNB30qIE?si=muP5Metp4W-_Iiv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/hair.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Frozen Hair 🥶 Amazing Platinum Social Haircut</h2>
+          <p>Agno Red Black</p>
+          <p>27K views · 2 months ago</p>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+     <!-- Card 8 -->
+
+     <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/OthFkySLnLc?si=VDcGpn_-HJ_0sQKX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/gymmer.avif" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>A day in the life in London | 9-5 job, Content Creation, Gym, Eating</h2>
+          <p>Chris Tang</p>
+          <p>12K views · 5 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <!-- Card 9 -->
+
+     <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+       <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/taLHvxFMoCE?si=ISMtR4NvTnztTFvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/gammers.webp" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>كتر وايب مزجني حرفيا مع اسكواد لعيب شوفو ايه اللي حصل PUBG Mobile</h2>
+          <p>Izero . Gamming</p>
+          <p>12K views · 5 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Card 10-->
+
+     <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+     <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/BMen3bj_6qo?si=ny5JJF7b7xeQIb8L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/dev.webp" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>A Day In The Life of a Frontend Engineer | *my journey* | vlog</h2>
+          <p>DeV X</p>
+          <p>13K views · 11 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+
+     <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/a_5wTLk4q6I?si=q1MVfTRAHFF0Q-LJ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/logo1.jpg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Barsaat song 🎵 slowed & reverb ❤ #‪@SumanBhakat-w3y‬ #aivideogenerator</h2>
+          <p>Kangken DB</p>
+          <p>17K views · 5 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+
+     <!-- Card 3 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/AHrGk2MfTvI?si=gQ2MYN_lxnEv9NJi" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/green.jpeg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>Akhara Ka Shair Dilsher | Top Fighting Scenes | Feroze Khan | Sonya Hussain | Green TV</h2>
+          <p>Green TV Entertainment</p>
+          <p>144K views · 11 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+     <!-- Card 4 -->
+    <div class="card1 w-full rounded-lg hover:shadow-lg duration-300">
+      <div class="video aspect-video w-full">
+        <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/6W9tsSvidVk?si=32UvzZx7OdmDVTud" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="lower px-4 flex gap-4 mt-2">
+        <div class="logo">
+          <img class="h-12 w-12 rounded-full" src="/images/gammers like u.jpeg" alt="">
+        </div>
+        <div class="text text-sm">
+          <h2>IQ 200 PLAYㅣUltimate Royale</h2>
+          <p>오살 OSAL
+</p>
+          <p>144K views · 11 months ago</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Sidebar toggle script -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("mobileSidebar");
+      sidebar.classList.toggle("-translate-x-full");
+    }
+  </script>
+
+</body>
+</html>
